@@ -1,0 +1,21 @@
+import time 
+class TestZ():
+    def __init__(self,work,data):
+        self.work=work
+        self.data=data
+    def start_test(self):
+        errors={}
+        t1=time.time()
+        print("___START___")
+        try:
+            
+            self.work(*self.data)
+            print('___GREATLY___')
+        except Exception as Err:
+            print("___Error___")
+            errors[type(Err)]=Err
+            print("___BAD FINISH___")
+            for k,v in errors.items():
+                print(f"{k}: \n\t{v}")
+        t2=time.time()
+        print(f"Run 1 test over {int(t2-t1)}'s")
